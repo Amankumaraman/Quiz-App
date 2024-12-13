@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Quiz Results - Gaming Theme</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      body {
+        background-color: #1e1e1e;
+        color: #fff;
+        font-family: "Press Start 2P", cursive;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        margin: 0;
+        overflow: hidden;
+      }
+
+      .container {
+        text-align: center;
+        width: 100%;
+        max-width: 600px;
+        padding: 30px;
+        background: #333;
+        border-radius: 10px;
+        box-shadow: 0 5px 20px rgba(0, 0, 0, 0.8);
+        animation: fadeIn 1s ease-in-out;
+      }
+
+      h1 {
+        font-size: 36px;
+        margin-bottom: 20px;
+        text-transform: uppercase;
+        color: #00ff00;
+        animation: bounceIn 1s ease;
+      }
+
+      .result {
+        font-size: 24px;
+        margin-bottom: 30px;
+        animation: fadeIn 1s ease-in-out;
+      }
+
+      .score {
+        font-size: 28px;
+        font-weight: bold;
+        color: #ff4d4d;
+        animation: fadeInUp 1s ease-in-out;
+      }
+
+      a {
+        display: inline-block;
+        background-color: #00ff00;
+        padding: 10px 20px;
+        border-radius: 8px;
+        font-size: 20px;
+        text-decoration: none;
+        color: #000;
+        transition: all 0.3s ease;
+        margin-top: 20px;
+        animation: pulse 1.5s infinite;
+      }
+
+      a:hover {
+        background-color: #ff4d4d;
+      }
+
+      .footer {
+        font-size: 14px;
+        margin-top: 30px;
+        color: #999;
+      }
+
+      button {
+        background-color: #00ff00;
+        border: none;
+        padding: 10px 20px;
+        border-radius: 8px;
+        font-size: 20px;
+        cursor: pointer;
+        margin-top: 20px;
+        transition: all 0.3s ease;
+        animation: pulse 1.5s infinite;
+      }
+      @keyframes fadeIn {
+        0% {
+          opacity: 0;
+        }
+        100% {
+          opacity: 1;
+        }
+      }
+
+      @keyframes fadeInUp {
+        0% {
+          opacity: 0;
+          transform: translateY(30px);
+        }
+        100% {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      @keyframes bounceIn {
+        0% {
+          transform: scale(0);
+        }
+        50% {
+          transform: scale(1.2);
+        }
+        100% {
+          transform: scale(1);
+        }
+      }
+
+      @keyframes pulse {
+        0% {
+          transform: scale(1);
+        }
+        50% {
+          transform: scale(1.1);
+        }
+        100% {
+          transform: scale(1);
+        }
+      }
+
+      /* Responsive Design */
+      @media (max-width: 768px) {
+        .container {
+          padding: 20px;
+        }
+
+        h1 {
+          font-size: 28px;
+        }
+
+        .result {
+          font-size: 20px;
+        }
+
+        .score {
+          font-size: 24px;
+        }
+
+        a {
+          font-size: 18px;
+          padding: 8px 16px;
+        }
+      }
+
+      @media (max-width: 480px) {
+        h1 {
+          font-size: 24px;
+        }
+
+        .result {
+          font-size: 18px;
+        }
+
+        .score {
+          font-size: 22px;
+        }
+
+        a {
+          font-size: 16px;
+          padding: 6px 12px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1>Game Over</h1>
+      <div class="result">
+        <p>Total Questions: {{ total_questions }}</p>
+        <p class="score">Correct Answers: {{ correct_answers }}</p>
+      </div>
+      <a href="{% url 'quiz:play_again' %}">Play Again</a>
+
+      <div class="buttons">
+        <a href="{% url 'quiz:exit_game' %}">
+          <button>Exit Game</button>
+        </a>
+      </div>
+      <div class="footer">Powered by QuizBot</div>
+    </div>
+  </body>
+</html>
