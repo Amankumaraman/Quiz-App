@@ -22,6 +22,13 @@ This is a simple quiz application built with Django. The app allows users to par
 - Python 3.x
 - Django 3.x or higher
 
+## Live Application
+
+You can access the live version of the application here:
+
+[Live Quiz App on PythonAnywhere](https://aman7869.pythonanywhere.com/)
+
+
 ## Installation
 
 ### Clone the repository
